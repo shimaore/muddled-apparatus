@@ -1,0 +1,21 @@
+{
+  "name": "muddled-apparatus",
+  "version": "1.0.1",
+  "description": "Android Publisher",
+  "author": "Stéphane Alnet <stephane@shimaore.net> (https://stephane.shimaore.net/)",
+  "license": "Unlicense",
+  "private": "kwaoo",
+  "scripts": {
+    "publish-to-google-play": "coffee publish.coffee.md"
+  },
+  "dependencies": {
+    "coffee-script": "^1.12.7",
+    "jsonwebtoken": "^8.1.0",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
+    "seem": "^2.0.0",
+    "superagent": "^3.8.0",
+    "tangible": "^1.9.0",
+    "uuid": "^3.1.0"
+  }
+}
