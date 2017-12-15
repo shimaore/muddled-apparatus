@@ -56,7 +56,7 @@ https://developers.google.com/android-publisher/api-ref/edits/apks/upload
         {body} = yield file.pipe upload
       catch error
         debug 'upload failed', error.message ? error.toString()
-        throw error
+        process.exit 1
 
       debug 'upload', body
 
