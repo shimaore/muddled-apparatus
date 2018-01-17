@@ -8,7 +8,7 @@ https://developers.google.com/android-publisher/tracks
 
 1. Upload one or more APKs by calling the Edits.apks: upload method.
 
-    publish = hand (packageName,track,version,apk,access) ->
+    publish = seem (packageName,track,version,apk,access) ->
 
       headers =
         'Authorization': "#{access.token_type} #{access.access_token}"
@@ -52,11 +52,7 @@ https://developers.google.com/android-publisher/api-ref/edits/apks/upload
             uploadType:'media'
           json: true
 
-      try
-        {body} = yield file.pipe upload
-      catch error
-        debug 'upload failed', error.message ? error.toString()
-        process.exit 1
+      {body} = yield file.pipe upload
 
       debug 'upload', body
 
@@ -126,6 +122,10 @@ Get Access-Token using the JWT (renew every hour).
     package_version = parseInt process.env.ANDROID_PACKAGE_VERSION
     package_apk = process.env.ANDROID_PACKAGE_APK
 
-    do seem ->
+    run = seem ->
       access = yield get_access_token()
       yield publish package_name, package_track, package_version, package_apk, access
+
+    run().catch (error) ->
+      debug 'upload failed', error.message ? error.toString()
+      process.exit 1
