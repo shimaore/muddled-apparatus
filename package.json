@@ -6,9 +6,11 @@
   "license": "Unlicense",
   "private": "kwaoo",
   "scripts": {
-    "publish-to-google-play": "coffee publish.coffee.md"
+    "publish-to-google-play": "coffee publish.coffee.md",
+    "publish-to-ceph": "coffee publish-to-ceph.coffee.md"
   },
   "dependencies": {
+    "aws-sdk": "^2.183.0",
     "coffee-script": "^1.12.7",
     "jsonwebtoken": "^8.1.0",
     "request": "^2.83.0",
